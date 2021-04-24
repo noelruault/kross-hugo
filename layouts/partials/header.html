@@ -4,7 +4,7 @@
       {{ if site.Params.logo }}
       <img src="{{ site.Params.logo | absURL }}" alt="{{site.Title}}">
       {{ else }}
-      <h3 class="text-white font-tertiary">{{site.Title}}</h3>
+      <h3 class="text-white font-tertiary">{{site.Title}}{{ if site.Params.blinking_cursor }}<span id="cursor">|</span>{{ end }}</h3>
       {{ end }}
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
@@ -42,3 +42,19 @@
     </div>
   </nav>
 </header>
+
+{{ if site.Params.blinking_cursor }}
+<script>
+  var cursor = true;
+  var speed = 550;
+  setInterval(() => {
+    if (cursor) {
+      document.getElementById('cursor').style.opacity = 0;
+      cursor = false;
+    } else {
+      document.getElementById('cursor').style.opacity = 1;
+      cursor = true;
+    }
+  }, speed);
+</script>
+{{ end }}
