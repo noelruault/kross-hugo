@@ -1,7 +1,7 @@
 /*!------------------------------------------------------------------
 [MAIN STYLESHEET]
-PROJECT: Project Name
-VERSION: Versoin Number
+PROJECT: Noël Ruault's personal website
+VERSION: <Version Number>
 -------------------------------------------------------------------*/
 @import "https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Roboto:300,400,500,700";
 
@@ -10,6 +10,11 @@ VERSION: Versoin Number
   src: url(../fonts/BwNistaInt-xBd.woff) format("woff");
   font-style: normal;
   font-display: swap
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden
 }
 
 body {
@@ -491,7 +496,7 @@ textarea.form-control {
 }
 
 #l3 {
-  top: 120px;
+  top: 125px;
   left: 40%
 }
 
@@ -670,20 +675,20 @@ textarea.form-control {
 
 .testimonial-bg-shapes .bg-shape-1 {
   position: absolute;
-  left: 100px;
-  top: -50px
+  left: 10px;
+  top: -60px
 }
 
 .testimonial-bg-shapes .bg-shape-2 {
   position: absolute;
   right: 50px;
-  top: 0px
+  top: -45px
 }
 
 .testimonial-bg-shapes .bg-shape-3 {
   position: absolute;
-  right: 50px;
-  top: 200px
+  right: 20px;
+  top: 140px
 }
 
 .testimonial-bg-shapes .bg-shape-4 {
@@ -695,7 +700,7 @@ textarea.form-control {
 .testimonial-bg-shapes .bg-shape-5 {
   position: absolute;
   right: 200px;
-  bottom: -50px
+  bottom: -60px
 }
 
 .footer-section {
@@ -787,26 +792,25 @@ blockquote {
 .page-title-alt .bg-shape-2 {
   position: absolute;
   left: 70px;
-  top: 100px
+  top: 130px
 }
 
 .page-title-alt .bg-shape-3 {
   position: absolute;
-  left: 30%;
-  top: 50px;
-  transform: rotate(180deg)
+  left: 70%;
+  top: 130px;
 }
 
 .page-title-alt .bg-shape-4 {
   position: absolute;
-  left: 100px;
-  bottom: 150px
+  left: 5%;
+  bottom: 180px
 }
 
 .page-title-alt .bg-shape-5 {
   position: absolute;
-  left: 40%;
-  bottom: -25px
+  left: 70%;
+  bottom: 5px
 }
 
 .page-title-alt .bg-shape-6 {
@@ -833,8 +837,8 @@ blockquote {
 
 .page-title .bg-shape-2 {
   position: absolute;
-  left: -20px;
-  top: -10px
+  left: 20px;
+  top: 120px
 }
 
 .page-title .bg-shape-3 {
@@ -851,15 +855,14 @@ blockquote {
 
 .page-title .bg-shape-5 {
   position: absolute;
-  left: 90px;
-  bottom: -50px;
-  transform: rotate(180deg)
+  left: 190px;
+  bottom: 20px;
 }
 
 .page-title .bg-shape-6 {
   position: absolute;
-  right: 20%;
-  bottom: -20px
+  right: 5%;
+  bottom: 20px
 }
 
 .page-title .bg-shape-7 {
