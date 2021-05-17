@@ -918,3 +918,68 @@ blockquote {
 .project-meta p{
   margin-bottom: 0;
 }
+
+.resume {
+  display: flex;
+  justify-content: center;
+  width: 80vw;
+}
+
+.resume p {
+  margin: 0;
+}
+
+.resume:hover .resume-poster {
+  transform: rotate(0);
+  transform: scale(1.15);
+  transition: transform ease-in-out 500ms;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .resume:hover .resume-poster {
+    transform: initial;
+    transition: none;
+  }
+}
+
+@media screen and (min-width: 30em) {
+  .resume {
+    width: 80vw;
+  }
+}
+
+.resume-poster {
+  box-shadow: 0 10px 30px -15px rgba(30, 33, 36, 0.85);
+  height: 8rem;
+  width: auto;
+  transform: rotate(-3deg);
+  transition: transform ease-in-out 125ms;
+}
+
+@media screen and (min-width: 30em) {
+  .resume-poster {
+    height: 14rem;
+  }
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .resume-poster {
+    transform: initial;
+    transition: none;
+  }
+}
+
+.resume-instructions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.25;
+  margin-left: 1.5rem;
+  max-width: 30ch;
+}
+
+@media screen and (min-width: 30em) {
+  .resume-instructions {
+    margin-left: 2rem;
+  }
+}

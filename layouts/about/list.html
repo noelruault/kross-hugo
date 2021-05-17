@@ -38,6 +38,16 @@
 </section>
 <!-- /about -->
 
+<!-- resume -->
+<!-- Inspired by: https://codepen.io/ericwbailey/pen/baByyw -->
+<section class="resume">
+  <img alt="Noël Ruault resume" class="resume-poster" src="{{.Params.resume_image_url | absURL }}" />
+  <div class="resume-instructions">
+    <a href="{{.Params.resume_gist_url | absURL }}" class="btn btn-sm btn-primary">Visualise resume</a>
+  </div>
+</section>
+<!-- /resume -->
+
 <!-- Work Process -->
 {{ if site.Data.about.work_process.enable }}
 {{ with site.Data.about.work_process }}
