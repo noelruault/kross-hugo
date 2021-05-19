@@ -40,8 +40,8 @@
 	{{ end }}
 
   {{ "<!-- OpenGraph meta (alters social media link metadata) -->" | safeHTML }}
-  <meta property="og:title" content="Hello, I'm Noël. I write code because I love it." />
-  <meta property="og:image" content="{{ `images/meta/og-image.png` | absURL }}" />
-  <meta property="og:description" content="Software engineer in all its amplitude. Backend partisan, Unix enthusiast, MacOs user. Always positive, eager, proactive and passionate. Skilled in agile methodologies and team procedures. Experienced in working with small and huge teams, in startups and big company teams and environments, determined to achieve success." />
+  <meta property="og:title" content="Hello, I'm Noël. I write code because I love it." name="title" />
+  <meta property="og:image" content="{{ `images/meta/og-image.png` | absURL }} " name="image" />
+  <meta property="og:description" content="Software engineer in all its amplitude. Backend partisan, Unix enthusiast, MacOs user. Always positive, eager, proactive and passionate. Skilled in agile methodologies and team procedures. Determined to achieve success." name="description" />
 
 </head>
