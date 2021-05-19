@@ -923,6 +923,7 @@ blockquote {
   display: flex;
   justify-content: center;
   width: 80vw;
+  padding-left: 10vw;
 }
 
 .resume p {
@@ -945,6 +946,7 @@ blockquote {
 @media screen and (min-width: 30em) {
   .resume {
     width: 80vw;
+    padding-left: 10vw;
   }
 }
 
