@@ -5,6 +5,7 @@
 <!-- portfolio -->
 <section class="section">
   <div class="container">
+    {{ if site.Data.portfolio.topbar.enable }}
     <div class="row mb-5">
       <div class="col-12">
         <div class="btn-group btn-group-toggle justify-content-center d-flex flex-wrap" data-toggle="buttons">
@@ -13,9 +14,9 @@
           </label>
 					{{ $categories := slice }}
 					{{ range .Data.Pages }}
-					{{ range .Params.categories }}
-					{{ $categories = $categories | append . }}
-					{{ end }}
+            {{ range .Params.categories }}
+              {{ $categories = $categories | append . }}
+					  {{ end }}
 					{{ end }}
 					{{ range ( $categories | uniq ) }}
           <label class="btn btn-sm btn-primary">
@@ -25,9 +26,11 @@
         </div>
       </div>
     </div>
+    {{ end }}
     <div class="row shuffle-wrapper">
       {{ range .Data.Pages }}
-      <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[{{range $index, $element:= .Params.categories }}{{if ne $index 0}},{{end}}&quot;{{. | urlize}}&quot;{{ end }}]">
+      <div class="col-lg-4 col-6 mb-4 shuffle-item"
+           data-groups="[{{range $index, $element:= .Params.categories }}{{if ne $index 0}},{{end}}&quot;{{. | urlize}}&quot;{{ end }}]">
         <div class="position-relative rounded hover-wrapper">
           <img src="{{.Params.image | absURL }}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
           <div class="hover-overlay">
@@ -36,6 +39,8 @@
             </div>
           </div>
         </div>
+        <h4 class="pt-2" style="min-height:35px">{{.Params.title }}</h4>
+        <div class="content" style="min-height:100px">{{.Params.description }}</div>
       </div>
       {{ end }}
     </div>
