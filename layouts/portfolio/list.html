@@ -29,8 +29,10 @@
     {{ end }}
     <div class="row shuffle-wrapper">
       {{ range .Data.Pages }}
-      <div class="col-lg-4 col-6 mb-4 shuffle-item"
-           data-groups="[{{range $index, $element:= .Params.categories }}{{if ne $index 0}},{{end}}&quot;{{. | urlize}}&quot;{{ end }}]">
+      <div
+        class="col-lg-4 col-6 mb-4 shuffle-item portfolio-item"
+        style="min-height: 400px;"
+        data-groups="[{{range $index, $element:= .Params.categories }}{{if ne $index 0}},{{end}}&quot;{{. | urlize}}&quot;{{ end }}]">
         <div class="position-relative rounded hover-wrapper">
           <img src="{{.Params.image | absURL }}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
           <div class="hover-overlay">
@@ -39,8 +41,8 @@
             </div>
           </div>
         </div>
-        <h4 class="pt-2" style="min-height:35px">{{.Params.title }}</h4>
-        <div class="content" style="min-height:100px">{{.Params.description }}</div>
+        <h4 class="pt-2">{{.Params.title }}</h4>
+        <div class="content">{{.Params.description }}</div>
       </div>
       {{ end }}
     </div>

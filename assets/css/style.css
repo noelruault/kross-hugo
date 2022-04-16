@@ -90,6 +90,36 @@ h6,
   font-size: 14px
 }
 
+@media(max-width:500px) {
+  .portfolio-item {
+    min-height: 350px !important;
+  }
+}
+
+.portfolio-section h1 {
+  font-size: 45px
+}
+
+.portfolio-section h2 {
+  font-size: 30px
+}
+
+.portfolio-section h3 {
+  font-size: 24px
+}
+
+.portfolio-section h4 {
+  font-size: 22px
+}
+
+.portfolio-section h5 {
+  font-size: 20px
+}
+
+.portfolio-section h6 {
+  font-size: 18px
+}
+
 .btn {
   font-size: 22px;
   font-family: playfair display, serif;
@@ -461,6 +491,10 @@ textarea.form-control {
 
 .navbar-dark .navbar-nav .nav-link {
   color: #fff;
+}
+
+.navbar-brand h3 {
+  font-size: var(--logo-font-size);
 }
 
 .hero-area {
