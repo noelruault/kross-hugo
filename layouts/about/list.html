@@ -43,7 +43,9 @@
 <section class="resume">
   <img alt="Noël Ruault resume" class="resume-poster" src="{{.Params.resume_image_url | absURL }}" />
   <div class="resume-instructions">
-    <a href="{{.Params.resume_gist_url | absURL }}" class="btn btn-sm btn-primary">Display resume</a>
+    <form action="{{.Params.resume_gist_url | absURL }}">
+      <button class="brick">Display resume</button>
+    </form>
   </div>
 </section>
 <!-- /resume -->

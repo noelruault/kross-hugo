@@ -120,6 +120,8 @@ h6,
   font-size: 18px
 }
 
+/* Buttons */
+
 .btn {
   font-size: 22px;
   font-family: playfair display, serif;
@@ -184,6 +186,56 @@ h6,
 .btn-transparent:active,
 .btn-transparent:hover {
   color: var(--primary-color)
+}
+
+/* Codepen: https: //codepen.io/kathykato/pen/gOOjgmP */
+
+button.brick {
+  font-weight: 600;
+  color: #382b22;
+  text-transform: uppercase;
+  padding: 1em 1.50em;
+  background: #f0feff;
+  border: 2px solid hsl(179, 22%, 61%);
+  border-radius: 0.75em;
+  transform-style: preserve-3d;
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+button.brick::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #c4f9f6;
+  border-radius: inherit;
+  box-shadow: 0 0 0 2px #85b0b1, 0 0.625em 0 0 #e2feff;
+  transform: translate3d(0, 0.75em, -1em);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+button.brick:hover {
+  background: #e9fffd;
+  transform: translate(0, 0.25em);
+}
+
+button.brick:hover::before {
+  box-shadow: 0 0 0 2px #85adb1, 0 0.5em 0 0 #e2fffe;
+  transform: translate3d(0, 0.5em, -1em);
+}
+
+button.brick:active {
+  background: #e9fffe;
+  transform: translate(0em, 0.75em);
+}
+
+button.brick:active::before {
+  box-shadow: 0 0 0 2px #85b1b0, 0 0 #e2ffff;
+  transform: translate3d(0, 0, -1em);
 }
 
 body {
@@ -545,8 +597,8 @@ textarea.form-control {
 }
 
 #l6 {
-  bottom: -20px;
-  left: 10%
+  bottom: 20px;
+  left: 60%
 }
 
 #l7 {
