@@ -1,4 +1,4 @@
-// Preloader js    
+// Preloader js
 $(window).on('load', function () {
 	$('.preloader').fadeOut(100);
 });
@@ -42,7 +42,7 @@ $(window).on('load', function () {
 
 		var parallaxBox = document.getElementById('parallax');
 		/*
-		 Fix js error, occurred at pages other than the home page. 
+		 Fix js error, occurred at pages other than the home page.
 		 When there're no parallax, just ignore the below
 		 other operations, as below elements are bingding to the parallax.
 		*/

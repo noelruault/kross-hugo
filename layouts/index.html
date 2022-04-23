@@ -21,9 +21,6 @@
   <div class="layer" id="l4">
     <img src="{{`images/illustrations/dots-orange.svg` | relURL}}" alt="bg-shape">
   </div>
-  <div class="layer" id="l5">
-    <img src="{{`images/illustrations/secured-datacenter.svg` | relURL}}" alt="bg-shape">
-  </div>
   <div class="layer" id="l6">
     <img src="{{`images/illustrations/console.svg` | relURL}}" alt="bg-shape">
   </div>
@@ -33,6 +30,9 @@
   <div class="layer" id="l8">
     <img src="{{`images/illustrations/keycap-n-for-noel.svg` | relURL}}" alt="bg-shape">
   </div>
+  <!-- <div class="layer" id="l5">
+    <img src="{{`images/illustrations/secured-datacenter.svg` | relURL}}" alt="bg-shape">
+  </div> -->
   <!-- <div class="layer" id="l9">
     <img src="{{`images/illustrations/security-checks-shield.svg` | relURL}}" alt="bg-shape">
   </div> -->
@@ -197,7 +197,7 @@
         <h2 class="section-title">{{ site.Data.homepage.portfolio.title | markdownify }}</h2>
       </div>
     </div>
-    <div class="row shuffle-wrapper">
+    <!-- <div class="row shuffle-wrapper">
       {{ $item:= site.Data.homepage.portfolio.item_show }}
       {{ range first $item (where .Site.RegularPages "Section" "portfolio") }}
       <div class="col-lg-4 col-6 mb-4 shuffle-item">
@@ -211,6 +211,217 @@
         </div>
       </div>
       {{ end }}
+    </div> -->
+
+    <!-- https://codepen.io/andybarefoot/pen/oNjxYYG -->
+    <div class="portfolio-ul">
+      {{ $item:= site.Data.homepage.portfolio.item_show }}
+      {{ range first $item (where .Site.RegularPages "Section" "portfolio") }}
+      <div class="portfolio-li">
+        <a href="{{ .Permalink | safeURL }}">
+          <img class="portfolio-img" src="{{.Params.image | absURL }}" alt="">
+        </a>
+      </div>
+      {{ end }}
+    </div>
+
+
+    <style>
+      :root {
+        --columns: 3;
+
+        --color-1: #366969;
+        --color-2: #4761a6;
+        --color-3: #82b98c;;
+        --color-4: #618068;
+        --color-5: #fdd47a;
+      }
+
+      .portfolio-ul {
+        display: grid;
+        grid-template-columns: repeat(var(--columns), 1fr);
+        margin: 200px -40px;
+      }
+
+      .portfolio-li {
+        grid-column-end: span 2;
+        position: relative;
+        width: 100%;
+        padding-bottom: 100%;
+        margin-top: -50%;
+      }
+
+      .portfolio-li:nth-child(2n) {
+        grid-column-start: 2;
+      }
+
+      .portfolio-li::before,
+      .portfolio-li::after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-size: 50% 100%, 50% 100%;
+        background-position: left, right;
+      }
+
+      .portfolio-li::before {
+        z-index: -10;
+        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+        -webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+        background-repeat: no-repeat;
+        background-image: linear-gradient(-45deg, var(--color-1) 53.5%, var(--color-3) 53.5%, var(--color-3) 60%, var(--color-1) 60%), linear-gradient(45deg, var(--color-1) 53.5%, var(--color-3) 53.5%, var(--color-3) 60%, var(--color-1) 60%);
+      }
+
+      .portfolio-li::after {
+        clip-path: polygon(100% 50%, 50% 100%, 0 50%, 20% 50%, 50% 80%, 80% 50%);
+        -webkit-clip-path: polygon(100% 50%, 50% 100%, 0 50%, 20% 50%, 50% 80%, 80% 50%);
+        background-repeat: no-repeat;
+        background-image: linear-gradient(45deg, var(--color-1) 40%, var(--color-3) 40%), linear-gradient(-45deg, var(--color-1) 40%, var(--color-3) 40%);
+      }
+
+      .portfolio-li:nth-child(2n)::before {
+        background-image: linear-gradient(-45deg, var(--color-5) 53.5%, var(--color-2) 53.5%, var(--color-2) 60%, var(--color-5) 60%), linear-gradient(45deg, var(--color-5) 53.5%, var(--color-2) 53.5%, var(--color-2) 60%, var(--color-5) 60%);
+      }
+
+      .portfolio-li:nth-child(2n)::after {
+        background-image: linear-gradient(45deg, var(--color-5) 40%, var(--color-2) 40%), linear-gradient(-45deg, var(--color-5) 40%, var(--color-2) 40%);
+      }
+
+      .portfolio-li:nth-child(5n)::before {
+        background-image: linear-gradient(-45deg, var(--color-3) 53.5%, var(--color-5) 53.5%, var(--color-5) 60%, var(--color-3) 60%), linear-gradient(45deg, var(--color-3) 53.5%, var(--color-5) 53.5%, var(--color-5) 60%, var(--color-3) 60%);
+      }
+
+      .portfolio-li:nth-child(5n)::after {
+        background-image: linear-gradient(45deg, var(--color-3) 40%, var(--color-5) 40%), linear-gradient(-45deg, var(--color-3) 40%, var(--color-5) 40%);
+      }
+
+      .portfolio-li:nth-child(7n)::before,
+      .portfolio-li:nth-child(7n-4)::before {
+        background-image: linear-gradient(-45deg, var(--color-2) 53.5%, var(--color-4) 53.5%, var(--color-4) 60%, var(--color-2) 60%), linear-gradient(45deg, var(--color-2) 53.5%, var(--color-4) 53.5%, var(--color-4) 60%, var(--color-2) 60%);
+      }
+
+      .portfolio-li:nth-child(7n)::after,
+      .portfolio-li:nth-child(7n-4)::after {
+        background-image: linear-gradient(45deg, var(--color-2) 40%, var(--color-4) 40%), linear-gradient(-45deg, var(--color-2) 40%, var(--color-4) 40%);
+      }
+
+      .portfolio-li:nth-child(9n)::before,
+      .portfolio-li:nth-child(9n-5)::before {
+        background-image: linear-gradient(-45deg, var(--color-4) 53.5%, var(--color-3) 53.5%, var(--color-3) 60%, var(--color-4) 60%), linear-gradient(45deg, var(--color-4) 53.5%, var(--color-3) 53.5%, var(--color-3) 60%, var(--color-4) 60%);
+      }
+
+      .portfolio-li:nth-child(9n)::after,
+      .portfolio-li:nth-child(9n-5)::after {
+        background-image: linear-gradient(45deg, var(--color-4) 40%, var(--color-3) 40%), linear-gradient(-45deg, var(--color-4) 40%, var(--color-3) 40%);
+      }
+
+      .portfolio-img {
+        position: absolute;
+        width: 43%;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-60%);
+        box-shadow: 5px -5px 10px rgba(0, 0, 0, 0.3);
+        transition-property: transform;
+        transition-duration: .3s;
+      }
+
+      .portfolio-img:hover {
+        transform: translateX(-40%) translateY(-70%) rotatez(25deg);
+      }
+
+      @media (min-width:450px) {
+        .portfolio-ul {
+          margin: 190px 40px;
+        }
+      }
+
+      @media (min-width:600px) {
+        :root {
+          --columns: 5;
+        }
+
+        .portfolio-li:nth-child(2n) {
+          grid-column-start: auto;
+        }
+
+        .portfolio-li:nth-child(4n-1) {
+          grid-column-start: 2;
+        }
+      }
+
+      @media (min-width:900px) {
+        :root {
+          --columns: 7;
+        }
+
+        .portfolio-li:nth-child(4n-1) {
+          grid-column-start: auto;
+        }
+
+        .portfolio-li:nth-child(6n-2) {
+          grid-column-start: 2;
+        }
+      }
+
+      @media (min-width:1200px) {
+        :root {
+          --columns: 9;
+        }
+
+        .portfolio-li:nth-child(6n-2) {
+          grid-column-start: auto;
+        }
+
+        .portfolio-li:nth-child(8n-3) {
+          grid-column-start: 2;
+        }
+      }
+
+      @media (min-width:1500px) {
+        :root {
+          --columns: 11;
+        }
+
+        .portfolio-li:nth-child(8n-3) {
+          grid-column-start: auto;
+        }
+
+        .portfolio-li:nth-child(10n-4) {
+          grid-column-start: 2;
+        }
+      }
+
+      @media (min-width:1800px) {
+        :root {
+          --columns: 13;
+        }
+
+        .portfolio-li:nth-child(10n-4) {
+          grid-column-start: auto;
+        }
+
+        .portfolio-li:nth-child(12n-5) {
+          grid-column-start: 2;
+        }
+      }
+
+      @media (min-width:2100px) {
+        :root {
+          --columns: 15;
+        }
+
+        .portfolio-li:nth-child(12n-5) {
+          grid-column-start: auto;
+        }
+
+        .portfolio-li:nth-child(14n-6) {
+          grid-column-start: 2;
+        }
+      }
+    </style>
 
     </div>
 </section>
