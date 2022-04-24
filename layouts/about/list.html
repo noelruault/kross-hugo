@@ -41,14 +41,51 @@
 <!-- resume -->
 <!-- Inspired by: https://codepen.io/ericwbailey/pen/baByyw -->
 <section class="resume">
-  <img alt="Noël Ruault resume" class="resume-poster" src="{{.Params.resume_image_url | absURL }}" />
+  <img id="resume-img" alt="Noël Ruault's résumé" class="modal-target resume-poster" src="{{.Params.resume_image_url | absURL }}" />
   <div class="resume-instructions">
     <form action="{{.Params.resume_gist_url | absURL }}">
-      <button class="brick">Display resume</button>
+      <button id="resume-button" class="brick">Display resume</button>
     </form>
   </div>
+
+  <div id="modal" class="modal">
+    <span id="modal-close" class="modal-close">&times;</span>
+    <img id="modal-content" class="modal-content">
+  </div>
 </section>
+
+<script>
+    // Modal Setup
+    var modal = document.getElementById('modal');
+
+    var modalClose = document.getElementById('modal-close');
+    modalClose.addEventListener('click', function () {
+      modal.style.display = "none";
+    });
+
+    // Make the display resume button to also show the modal
+    // var resumeImg = document.getElementById('resume-img');
+    // var modalClose = document.getElementById('resume-button');
+    // modalClose.addEventListener('click', function () {
+    //   if (resumeImg.className.indexOf('modal-target') !== -1) {
+    //     var modalImg = document.getElementById("modal-content");
+    //     modal.style.display = "block";
+    //     modalImg.src = resumeImg.src;
+    //   }
+    // });
+
+    // global handler
+    document.addEventListener('click', function (e) {
+      if (e.target.className.indexOf('modal-target') !== -1) {
+        var img = e.target;
+        var modalImg = document.getElementById("modal-content");
+        modal.style.display = "block";
+        modalImg.src = img.src;
+      }
+    });
+</script>
 <!-- /resume -->
+
 
 <!-- Work Process -->
 {{ if site.Data.about.work_process.enable }}
