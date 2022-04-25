@@ -41,17 +41,18 @@
 <!-- resume -->
 <!-- Inspired by: https://codepen.io/ericwbailey/pen/baByyw -->
 <section class="resume">
-  <img id="resume-img" alt="Noël Ruault's résumé" class="modal-target resume-poster" src="{{.Params.resume_image_url | absURL }}" />
+  <!-- <img id="resume-img" alt="Noël Ruault's résumé" class="modal-target resume-poster" src="{{.Params.resume_image_url | absURL }}" /> -->
+  <img id="resume-img" alt="Noël Ruault's résumé" class="resume-poster" src="{{.Params.resume_image_url | absURL }}" />
   <div class="resume-instructions">
     <form action="{{.Params.resume_gist_url | absURL }}">
       <button id="resume-button" class="brick">Display resume</button>
     </form>
   </div>
 
-  <div id="modal" class="modal">
+  <!-- <div id="modal" class="modal">
     <span id="modal-close" class="modal-close">&times;</span>
     <img id="modal-content" class="modal-content">
-  </div>
+  </div> -->
 </section>
 
 <script>
