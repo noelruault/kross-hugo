@@ -39,54 +39,141 @@
 <!-- /about -->
 
 <!-- resume -->
-<!-- Inspired by: https://codepen.io/ericwbailey/pen/baByyw -->
-<section class="resume mb-100">
-  <!-- <img id="resume-img" alt="Noël Ruault's résumé" class="modal-target resume-poster" src="{{.Params.resume_image_url | absURL }}" /> -->
-  <img id="resume-img" alt="Noël Ruault's résumé" class="resume-poster" src="{{.Params.resume_image_url | absURL }}" />
+<!-- Inspired by:
+  - https://codepen.io/ericwbailey/pen/baByyw
+  - https://codepen.io/thormeier/pen/YzxaNdN
+-->
+<section class="resume">
+  <div class="imagezoom-container">
+    <!-- <a href="{{.Params.resume_gist_url | absURL }}"> -->
+      <!-- <img alt="Noël Ruault resume" class="resume-poster" src="{{.Params.resume_image_url | absURL }}" /> -->
+      <input type="text" class="resume-poster imagezoom" style="background-image: url({{.Params.resume_image_url | absURL }});">
+    <!-- </a> -->
+    <div class="imagezoom-background"></div>
+    <button class="imagezoom-close">
+      &times;
+    </button>
+  </div>
   <div class="resume-instructions">
     <form action="{{.Params.resume_gist_url | absURL }}">
-      <button id="resume-button" class="brick">Display resume</button>
-    </form>
+      <button class="brick">Display resume</button>
+    <!-- </form> -->
   </div>
 
-  <!-- <div id="modal" class="modal">
-    <span id="modal-close" class="modal-close">&times;</span>
-    <img id="modal-content" class="modal-content">
-  </div> -->
+
+  <div class="imagezoom-container">
+    <input type="text" class="imagezoom"
+           style="background-image: url({{.Params.resume_image_url | absURL }});">
+    <div class="imagezoom-background"></div>
+    <button class="imagezoom-close">
+      &times;
+    </button>
+  </div>
+
+  <script>
+
+  </script>
+
+<style>
+
+.imagezoom-container {
+  display: inline-block;
+  margin: 10px;
+}
+
+.imagezoom {
+  cursor: pointer;
+  background-size: 100% 100%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+
+  /* background-size: cover;
+  background-position: center;
+  border: 0 none;
+  color: rgba(0, 0, 0, 0);
+  height: inherit; */
+}
+.imagezoom::selection {
+  display: none;
+}
+
+.imagezoom:focus {
+  /* Make the "image" fill the entire screen */
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: calc(100vw - 200px) !important;
+  height: calc(100vh - 100px) !important;
+  min-width: 600px;
+
+  /* Style the background-image */
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 50px 100px;
+
+  /* Remove the background-color by making it fully transparent */
+  background-color: rgba(0, 0, 0, 0);
+
+  /* Get rid of default focus styling */
+  z-index: 100;
+  border: 0 none;
+  outline: none;
+
+  transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+}
+
+/* The background */
+.imagezoom-background {
+  display: none;
+}
+
+.imagezoom:focus ~ .imagezoom-background {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.imagezoom-close {
+  display: none;
+}
+
+.imagezoom:focus ~ .imagezoom-close {
+  display: block;
+  background: none;
+  border: 0 none;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+
+  /* 100% Image Width on Smaller Screens */
+  @media only screen and (max-width: 700px) {
+    .modal-content {
+      width: 100%;
+    }
+  }
+</style>
 </section>
-
-<script>
-    // Modal Setup
-    var modal = document.getElementById('modal');
-
-    var modalClose = document.getElementById('modal-close');
-    modalClose.addEventListener('click', function () {
-      modal.style.display = "none";
-    });
-
-    // Make the display resume button to also show the modal
-    // var resumeImg = document.getElementById('resume-img');
-    // var modalClose = document.getElementById('resume-button');
-    // modalClose.addEventListener('click', function () {
-    //   if (resumeImg.className.indexOf('modal-target') !== -1) {
-    //     var modalImg = document.getElementById("modal-content");
-    //     modal.style.display = "block";
-    //     modalImg.src = resumeImg.src;
-    //   }
-    // });
-
-    // global handler
-    document.addEventListener('click', function (e) {
-      if (e.target.className.indexOf('modal-target') !== -1) {
-        var img = e.target;
-        var modalImg = document.getElementById("modal-content");
-        modal.style.display = "block";
-        modalImg.src = img.src;
-      }
-    });
-</script>
 <!-- /resume -->
-
 
 <!-- Work Process -->
 {{ if site.Data.about.work_process.enable }}
