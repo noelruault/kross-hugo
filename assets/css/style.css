@@ -90,12 +90,6 @@ h6,
   font-size: 14px
 }
 
-@media(max-width:500px) {
-  .portfolio-item {
-    min-height: 350px !important;
-  }
-}
-
 .portfolio-section h1 {
   font-size: 45px
 }
@@ -118,6 +112,60 @@ h6,
 
 .portfolio-section h6 {
   font-size: 18px
+}
+
+.photos-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  padding: 0;
+  max-width: 980px;
+}
+
+.photo-img {
+  display: block;
+  float: left;
+  flex: 0 0 auto;
+  background-color: #fff;
+  padding: 15px;
+}
+
+
+@media screen and (min-width: 1024px) {
+  .photo-img {
+    width: calc(100%/4);
+    height: calc(100%/4);
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .photo-img {
+    width: calc(100%/3);
+    height: calc(100%/3);
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .photo-img {
+    width: calc(100%/3);
+    height: calc(100%/3);
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 480px) {
+  .photo-img {
+    width: calc(100%/2);
+    height: calc(100%/2);
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .photo-img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 /* Buttons */
@@ -200,6 +248,16 @@ button.brick {
   border-radius: 0.75em;
   transform-style: preserve-3d;
   transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+@media (max-width:550px) {
+  button {
+    font-size: 10px;
+  }
+  button.brick {
+    width: 100px;
+    height: 50px;
+  }
 }
 
 button.brick::before {
@@ -542,6 +600,13 @@ textarea.form-control {
 
 .navbar-brand h3 {
   font-size: var(--logo-font-size);
+}
+
+/* Smaller logo (name) for tiny screens */
+@media(max-width:375px) {
+  .navbar-brand h3 {
+    font-size: 21px;
+  }
 }
 
 .hero-area {
@@ -1003,8 +1068,6 @@ blockquote {
 .resume {
   display: flex;
   justify-content: center;
-  width: 80vw;
-  padding-left: 10vw;
 }
 
 .resume p {
@@ -1024,16 +1087,11 @@ blockquote {
   }
 }
 
-@media screen and (min-width: 30em) {
-  .resume {
-    width: 80vw;
-    padding-left: 10vw;
-  }
-}
-
 .resume-poster {
   box-shadow: 0 10px 30px -15px rgba(30, 33, 36, 0.85);
-  height: 8rem;
+  /* height: 8rem; */
+  height: calc(50vw);
+  max-height: 300px;
   width: auto;
   transform: rotate(-3deg);
   transition: transform ease-in-out 125ms;
@@ -1075,70 +1133,74 @@ blockquote {
   opacity: 0.7;
 }
 
-/* The Modal (background) */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 99;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Modal Content (image) */
 .modal-content {
-  /* center image */
-  margin-left: auto;
-  margin-right: auto;
-  /* adjust to window size */
-  height: calc(100vh - 200px) !important;
-  /* keep aspect ratio */
-  display: block;
-  width: auto;
-}
-
-@-webkit-keyframes zoom {
-  from {
-    -webkit-atransform: scale(0)
+    max-width: 100%;
+    max-height: calc(100vh - 200px) !important;
+    width: auto;
+    height: auto;
+    margin: auto;
   }
 
-  to {
-    -webkit-transform: scale(1)
-  }
-}
-
-@keyframes zoom {
-  from {
-    transform: scale(0)
+  .modal-content {
+    /* Add Animation */
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
   }
 
-  to {
-    transform: scale(1sq)
+  .img-overview {
+    cursor: pointer;
+    background-size: 100% 100%;
+    background-position: 50%;
+    background-repeat: no-repeat;
   }
-}
 
-/* The Close Button */
-.modal-close {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-}
+  .img-overview:hover {opacity: 0.6;}
 
-.modal-close:hover,
-.modal-close:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
-}
+  /* The Modal (background) */
+  .modal-container {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.8);
+
+    width: 100%;
+    height: 100%;
+  }
+
+  @-webkit-keyframes zoom {
+    from {-webkit-atransform:scale(0)}
+    to {-webkit-transform:scale(1)}
+  }
+
+  @keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+  }
+
+  /* The Close Button */
+  .modal-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .modal-close:hover,
+  .modal-close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
 /* Preloader */
 .preloader {
@@ -1558,13 +1620,11 @@ blockquote {
     /* Console-like cookies  */
     .cookie-box {
       position: fixed;
-      left: 0;
       right: 0;
-      bottom: 0;
-      text-align: center;
+      text-align: left;
       z-index: 9999;
-      padding: 1rem 2rem;
-      background: rgb(71, 71, 71);
+      padding: 10px 10px;
+      background: #000000;
       transition: all .75s cubic-bezier(.19, 1, .22, 1);
       color: #fdfdfd;
     }
@@ -1573,13 +1633,6 @@ blockquote {
       display: none;
     }
 
-    .cookie-box {
-      right: 0
-    }
-
-    .cookie-box-hide {
-      display: none;
-    }
 
     .cookies-banner {
       position: fixed;
@@ -1588,7 +1641,7 @@ blockquote {
       width: 452px;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale
+      -moz-osx-font-smoothing: grayscale;
     }
 
     @media (max-width: 500px) {
@@ -1634,7 +1687,8 @@ blockquote {
       margin-right: 30px;
       cursor: pointer;
       color: inherit;
-      text-decoration: none
+      text-decoration: none;
+      background-color: #ffffff2e;
     }
 
     .cookies-banner__choice-link b {
@@ -1709,7 +1763,7 @@ blockquote {
       padding: 0 23px;
       background: #000;
       color: #ccc;
-      font: 12px/16px Menlo, Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif
+      font: 12px/16px Menlo, Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
     }
 
     .cookies-banner__body:before {

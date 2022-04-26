@@ -137,6 +137,7 @@
       const cookieBox = document.getElementById('js-cookie-box');
       const cookieButton = document.getElementById('js-close-cookie-button');
       const cookieYesButton = document.getElementById('js-cookie-yes-button');
+
       if (!Cookies.get('cookie-box')) {
         cookieBox.classList.remove('cookie-box-hide');
         cookieButton.onclick = function () {

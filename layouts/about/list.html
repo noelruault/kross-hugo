@@ -41,49 +41,53 @@
 <!-- resume -->
 <!-- Inspired by: https://codepen.io/ericwbailey/pen/baByyw -->
 <section class="resume mb-100">
-  <!-- <img id="resume-img" alt="Noël Ruault's résumé" class="modal-target resume-poster" src="{{.Params.resume_image_url | absURL }}" /> -->
-  <img id="resume-img" alt="Noël Ruault's résumé" class="resume-poster" src="{{.Params.resume_image_url | absURL }}" />
+  <img id="resume-img" alt="Noël Ruault's résumé" class="img-overview resume-poster" src="{{.Params.resume_image_url | absURL }}" />
   <div class="resume-instructions">
-    <form action="{{.Params.resume_gist_url | absURL }}">
       <button id="resume-button" class="brick">Display resume</button>
-    </form>
   </div>
 
-  <!-- <div id="modal" class="modal">
+  <div id="modal-container" class="modal-container">
     <span id="modal-close" class="modal-close">&times;</span>
     <img id="modal-content" class="modal-content">
-  </div> -->
+  </div>
 </section>
 
 <script>
-    // Modal Setup
-    var modal = document.getElementById('modal');
-
+    // Modal container
+    var modalContainer = document.getElementById('modal-container');
     var modalClose = document.getElementById('modal-close');
-    modalClose.addEventListener('click', function () {
-      modal.style.display = "none";
+    var modalContent = document.getElementById('modal-content');
+
+    // Closes the image if the modal is being clicked.
+    modalContainer.addEventListener('click', function () {
+      modalContainer.style.display = "none";
     });
 
-    // Make the display resume button to also show the modal
-    // var resumeImg = document.getElementById('resume-img');
-    // var modalClose = document.getElementById('resume-button');
-    // modalClose.addEventListener('click', function () {
-    //   if (resumeImg.className.indexOf('modal-target') !== -1) {
-    //     var modalImg = document.getElementById("modal-content");
-    //     modal.style.display = "block";
-    //     modalImg.src = resumeImg.src;
-    //   }
-    // });
+    // But prevents closing the image if the click is made on it.
+    document.getElementById('modal-content').onclick = function (e) {
+      e.stopPropagation();
+    }
 
-    // global handler
-    document.addEventListener('click', function (e) {
-      if (e.target.className.indexOf('modal-target') !== -1) {
+    // Modal close button.
+    modalClose.addEventListener('click', function () {
+      modalContainer.style.display = "none";
+    });
+
+    // Display the image in the modal-content when the resume image is clicked.
+    document.getElementById('resume-img').onclick = function (e) {
         var img = e.target;
         var modalImg = document.getElementById("modal-content");
-        modal.style.display = "block";
+        modalContainer.style.display = "block";
         modalImg.src = img.src;
-      }
-    });
+    }
+
+    // Display the image in the modal-content when the button is clicked.
+    document.getElementById('resume-button').onclick = function (e) {
+        var modalImg = document.getElementById("modal-content");
+        modalContainer.style.display = "block";
+        var resumeImg = document.getElementById("resume-img");
+        modalImg.src = resumeImg.src;
+    }
 </script>
 <!-- /resume -->
 
