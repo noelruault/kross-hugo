@@ -25,7 +25,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h2 class="section-title">Follow me on Social</h2>
+        <h3 class="section-title">Follow me on Social</h3>
       </div>
       <div class="col-12">
         <ul class="list-inline social-icons text-center">
@@ -37,5 +37,12 @@
     </div>
   </div>
 </section>
+
+<!-- If the contact form is not enabled  -->
+{{ if not site.Params.contact_form.enable_on_footer }}
+  {{ if site.Params.contact_form.enable_on_contact_page }}
+    {{ partial "contact-form.html" . }}
+  {{ end }}
+{{ end }}
 
 {{ end }}

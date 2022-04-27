@@ -1143,7 +1143,7 @@ blockquote {
   margin: auto;
 }
 
-.modal-content {
+.modal-content-animation {
   /* Add Animation */
   -webkit-animation-name: zoom;
   -webkit-animation-duration: 0.6s;
@@ -1500,19 +1500,18 @@ blockquote {
 
 /* Home screen portfolio */
 :root {
-  --columns: 3;
+  --portfolio-columns: 3;
 
-  --color-1: #366969;
-  --color-2: #4761a6;
-  --color-3: #82b98c;
-  ;
-  --color-4: #618068;
-  --color-5: #fdd47a;
+  --portfolio-color-1: #366969;
+  --portfolio-color-2: #4761a6;
+  --portfolio-color-3: #82b98c;
+  --portfolio-color-4: #618068;
+  --portfolio-color-5: #fdd47a;
 }
 
 .portfolio-ul {
   display: grid;
-  grid-template-columns: repeat(var(--columns), 1fr);
+  grid-template-columns: repeat(var(--portfolio-columns), 1fr);
   margin: 200px -40px;
 }
 
@@ -1544,50 +1543,50 @@ blockquote {
   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
   -webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
   background-repeat: no-repeat;
-  background-image: linear-gradient(-45deg, var(--color-1) 53.5%, var(--color-3) 53.5%, var(--color-3) 60%, var(--color-1) 60%), linear-gradient(45deg, var(--color-1) 53.5%, var(--color-3) 53.5%, var(--color-3) 60%, var(--color-1) 60%);
+  background-image: linear-gradient(-45deg, var(--portfolio-color-1) 53.5%, var(--portfolio-color-3) 53.5%, var(--portfolio-color-3) 60%, var(--portfolio-color-1) 60%), linear-gradient(45deg, var(--portfolio-color-1) 53.5%, var(--portfolio-color-3) 53.5%, var(--portfolio-color-3) 60%, var(--portfolio-color-1) 60%);
 }
 
 .portfolio-li::after {
   clip-path: polygon(100% 50%, 50% 100%, 0 50%, 20% 50%, 50% 80%, 80% 50%);
   -webkit-clip-path: polygon(100% 50%, 50% 100%, 0 50%, 20% 50%, 50% 80%, 80% 50%);
   background-repeat: no-repeat;
-  background-image: linear-gradient(45deg, var(--color-1) 40%, var(--color-3) 40%), linear-gradient(-45deg, var(--color-1) 40%, var(--color-3) 40%);
+  background-image: linear-gradient(45deg, var(--portfolio-color-1) 40%, var(--portfolio-color-3) 40%), linear-gradient(-45deg, var(--portfolio-color-1) 40%, var(--portfolio-color-3) 40%);
 }
 
 .portfolio-li:nth-child(2n)::before {
-  background-image: linear-gradient(-45deg, var(--color-5) 53.5%, var(--color-2) 53.5%, var(--color-2) 60%, var(--color-5) 60%), linear-gradient(45deg, var(--color-5) 53.5%, var(--color-2) 53.5%, var(--color-2) 60%, var(--color-5) 60%);
+  background-image: linear-gradient(-45deg, var(--portfolio-color-5) 53.5%, var(--portfolio-color-2) 53.5%, var(--portfolio-color-2) 60%, var(--portfolio-color-5) 60%), linear-gradient(45deg, var(--portfolio-color-5) 53.5%, var(--portfolio-color-2) 53.5%, var(--portfolio-color-2) 60%, var(--portfolio-color-5) 60%);
 }
 
 .portfolio-li:nth-child(2n)::after {
-  background-image: linear-gradient(45deg, var(--color-5) 40%, var(--color-2) 40%), linear-gradient(-45deg, var(--color-5) 40%, var(--color-2) 40%);
+  background-image: linear-gradient(45deg, var(--portfolio-color-5) 40%, var(--portfolio-color-2) 40%), linear-gradient(-45deg, var(--portfolio-color-5) 40%, var(--portfolio-color-2) 40%);
 }
 
 .portfolio-li:nth-child(5n)::before {
-  background-image: linear-gradient(-45deg, var(--color-3) 53.5%, var(--color-5) 53.5%, var(--color-5) 60%, var(--color-3) 60%), linear-gradient(45deg, var(--color-3) 53.5%, var(--color-5) 53.5%, var(--color-5) 60%, var(--color-3) 60%);
+  background-image: linear-gradient(-45deg, var(--portfolio-color-3) 53.5%, var(--portfolio-color-5) 53.5%, var(--portfolio-color-5) 60%, var(--portfolio-color-3) 60%), linear-gradient(45deg, var(--portfolio-color-3) 53.5%, var(--portfolio-color-5) 53.5%, var(--portfolio-color-5) 60%, var(--portfolio-color-3) 60%);
 }
 
 .portfolio-li:nth-child(5n)::after {
-  background-image: linear-gradient(45deg, var(--color-3) 40%, var(--color-5) 40%), linear-gradient(-45deg, var(--color-3) 40%, var(--color-5) 40%);
+  background-image: linear-gradient(45deg, var(--portfolio-color-3) 40%, var(--portfolio-color-5) 40%), linear-gradient(-45deg, var(--portfolio-color-3) 40%, var(--portfolio-color-5) 40%);
 }
 
 .portfolio-li:nth-child(7n)::before,
 .portfolio-li:nth-child(7n-4)::before {
-  background-image: linear-gradient(-45deg, var(--color-2) 53.5%, var(--color-4) 53.5%, var(--color-4) 60%, var(--color-2) 60%), linear-gradient(45deg, var(--color-2) 53.5%, var(--color-4) 53.5%, var(--color-4) 60%, var(--color-2) 60%);
+  background-image: linear-gradient(-45deg, var(--portfolio-color-2) 53.5%, var(--portfolio-color-4) 53.5%, var(--portfolio-color-4) 60%, var(--portfolio-color-2) 60%), linear-gradient(45deg, var(--portfolio-color-2) 53.5%, var(--portfolio-color-4) 53.5%, var(--portfolio-color-4) 60%, var(--portfolio-color-2) 60%);
 }
 
 .portfolio-li:nth-child(7n)::after,
 .portfolio-li:nth-child(7n-4)::after {
-  background-image: linear-gradient(45deg, var(--color-2) 40%, var(--color-4) 40%), linear-gradient(-45deg, var(--color-2) 40%, var(--color-4) 40%);
+  background-image: linear-gradient(45deg, var(--portfolio-color-2) 40%, var(--portfolio-color-4) 40%), linear-gradient(-45deg, var(--portfolio-color-2) 40%, var(--portfolio-color-4) 40%);
 }
 
 .portfolio-li:nth-child(9n)::before,
 .portfolio-li:nth-child(9n-5)::before {
-  background-image: linear-gradient(-45deg, var(--color-4) 53.5%, var(--color-3) 53.5%, var(--color-3) 60%, var(--color-4) 60%), linear-gradient(45deg, var(--color-4) 53.5%, var(--color-3) 53.5%, var(--color-3) 60%, var(--color-4) 60%);
+  background-image: linear-gradient(-45deg, var(--portfolio-color-4) 53.5%, var(--portfolio-color-3) 53.5%, var(--portfolio-color-3) 60%, var(--portfolio-color-4) 60%), linear-gradient(45deg, var(--portfolio-color-4) 53.5%, var(--portfolio-color-3) 53.5%, var(--portfolio-color-3) 60%, var(--portfolio-color-4) 60%);
 }
 
 .portfolio-li:nth-child(9n)::after,
 .portfolio-li:nth-child(9n-5)::after {
-  background-image: linear-gradient(45deg, var(--color-4) 40%, var(--color-3) 40%), linear-gradient(-45deg, var(--color-4) 40%, var(--color-3) 40%);
+  background-image: linear-gradient(45deg, var(--portfolio-color-4) 40%, var(--portfolio-color-3) 40%), linear-gradient(-45deg, var(--portfolio-color-4) 40%, var(--portfolio-color-3) 40%);
 }
 
 .portfolio-img {
@@ -1613,7 +1612,7 @@ blockquote {
 
 @media (min-width:600px) {
   :root {
-    --columns: 5;
+    --portfolio-columns: 5;
   }
 
   .portfolio-li:nth-child(2n) {
@@ -1627,7 +1626,7 @@ blockquote {
 
 @media (min-width:900px) {
   :root {
-    --columns: 7;
+    --portfolio-columns: 7;
   }
 
   .portfolio-li:nth-child(4n-1) {
@@ -1641,7 +1640,7 @@ blockquote {
 
 @media (min-width:1200px) {
   :root {
-    --columns: 9;
+    --portfolio-columns: 9;
   }
 
   .portfolio-li:nth-child(6n-2) {
@@ -1655,7 +1654,7 @@ blockquote {
 
 @media (min-width:1500px) {
   :root {
-    --columns: 11;
+    --portfolio-columns: 11;
   }
 
   .portfolio-li:nth-child(8n-3) {
@@ -1669,7 +1668,7 @@ blockquote {
 
 @media (min-width:1800px) {
   :root {
-    --columns: 13;
+    --portfolio-columns: 13;
   }
 
   .portfolio-li:nth-child(10n-4) {
@@ -1683,7 +1682,7 @@ blockquote {
 
 @media (min-width:2100px) {
   :root {
-    --columns: 15;
+    --portfolio-columns: 15;
   }
 
   .portfolio-li:nth-child(12n-5) {

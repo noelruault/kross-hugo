@@ -48,11 +48,13 @@
 
   <div id="modal-container" class="modal-container">
     <span id="modal-close" class="modal-close">&times;</span>
-    <img id="modal-content" class="modal-content">
+    <img id="modal-content" class="modal-content modal-content-animation">
   </div>
 </section>
 
 <script>
+    /* NOTE: modal-content-animation is being removed and added back to trigger the animation at all times */
+
     // Modal container
     var modalContainer = document.getElementById('modal-container');
     var modalClose = document.getElementById('modal-close');
@@ -60,6 +62,7 @@
 
     // Closes the image if the modal is being clicked.
     modalContainer.addEventListener('click', function () {
+      modalContent.classList.remove('modal-content-animation')
       modalContainer.style.display = "none";
     });
 
@@ -70,13 +73,16 @@
 
     // Modal close button.
     modalClose.addEventListener('click', function () {
+      modalContent.classList.remove('modal-content-animation')
       modalContainer.style.display = "none";
     });
 
     // Display the image in the modal-content when the resume image is clicked.
     document.getElementById('resume-img').onclick = function (e) {
-        var img = e.target;
-        var modalImg = document.getElementById("modal-content");
+      var img = e.target;
+      var modalImg = document.getElementById("modal-content");
+
+        modalContent.classList.add('modal-content-animation')
         modalContainer.style.display = "block";
         modalImg.src = img.src;
     }
@@ -84,8 +90,10 @@
     // Display the image in the modal-content when the button is clicked.
     document.getElementById('resume-button').onclick = function (e) {
         var modalImg = document.getElementById("modal-content");
-        modalContainer.style.display = "block";
         var resumeImg = document.getElementById("resume-img");
+
+        modalContent.classList.add('modal-content-animation')
+        modalContainer.style.display = "block";
         modalImg.src = resumeImg.src;
     }
 </script>
