@@ -38,9 +38,10 @@
   </div>
 </section>
 
-<!-- If the contact form is not enabled  -->
-{{ if not site.Params.contact_form.enable_on_footer }}
-  {{ if site.Params.contact_form.enable_on_contact_page }}
+{{ if site.Params.contact_form.enable_on_contact_page }}
+  {{ if site.Params.contact_form.enable_on_footer }}
+  <!-- don't render the contact form partial. -->
+  {{ else }}
     {{ partial "contact-form.html" . }}
   {{ end }}
 {{ end }}
