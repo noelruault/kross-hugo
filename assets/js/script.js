@@ -165,17 +165,3 @@ $(window).on('load', function () {
 		});
 	}
 })(jQuery);
-
-// Check if the pressed key is the one you want to use to close the js-cookie-box div, only if present.
-document.addEventListener('keypress', function (event) {
-	if (event.key === 'y' || event.key === 'Y') {
-		var cookieBox = document.getElementById('js-cookie-box');
-		if (cookieBox) {
-			if (cookieBox.style.display !== 'none') {
-				cookieBox.style.display = 'none';
-			} else {
-				return;
-			}
-		}
-	}
-});

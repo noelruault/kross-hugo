@@ -67,6 +67,19 @@
         };
       }
     }) (jQuery);
+
+    // Check if the pressed key is the one you want to use to close the js-cookie-box div, only if present.
+      document.addEventListener('keypress', function (event) {
+        if (event.key === 'y' || event.key === 'Y') {
+          var cookieBox = document.getElementById('js-cookie-box');
+          if (cookieBox) {
+            if (cookieBox.style.display !== 'none' || !cookieBox.classList.contains('cookie-box-hide')) {
+              cookieBox.classList.add('cookie-box-hide');
+              cookieBox.style.display = 'none';
+            } else { return; }
+          }
+        }
+      });
   </script>
 
   <!-- cookie style -->
